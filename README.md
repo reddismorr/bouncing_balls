@@ -9,7 +9,7 @@ The project is divided into two parts: computation (with the creation of control
 
 // There is also a converter into .json format from plain text files (part of server interaction) //
 
-Following running is suggested to be working on every system (no one really tried to run it somewhere else except our server and Jupyter Lab under W10):
+Following running is suggested to be working on every system (no one really tried to run it somewhere else except our server and JupyterLab under the W10):
 1) python3 Computation_BB.py computation_configuration.json
 2) python3 Visualization_BB.py -WD or place of the first code- visualization_configuration.json
 
