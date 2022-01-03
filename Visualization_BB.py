@@ -124,11 +124,13 @@ def main():
     backProperty = vtkProperty()
     backProperty.SetColor(colors.GetColor3d('PeachPuff'))
     
+#     with open('vis_conf.txt') as f:
     with open(sys.argv[2]) as f:
-        fps = int(f.readline().split('\n')[0])
-        resolution = {}
-        resolution['x'] = int(f.readline().split('\n')[0])
-        resolution['y'] = int(f.readline().split('\n')[0])
+        data = f.read()
+        configuration_parameters = json.loads(data)
+    
+    fps = int(configuration_parameters['fps'])
+    resolution = (configuration_parameters['resolution'])
     
     pattern = re.compile(".*metadata.json")
     for i in sorted(os.listdir(sys.argv[1])):
