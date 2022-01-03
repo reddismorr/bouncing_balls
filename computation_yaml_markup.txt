@@ -1,12 +1,12 @@
 exec:
-    comm: Computing_BB.py computing_configuration.json
+    comm: Computation_BB.py computing_configuration.json
 runBy:
     type: python3
 inputs:
   - type: file
     ident: config
     name: conf_file
-    description: Ñonfiguration for computing
+    description: Ã‘onfiguration for computing
     options: 
       format: data
       fType: plain
