@@ -19,8 +19,9 @@ Configuration files are supposed to be in .json format, but you can just write a
 
 I hope it will work.
 
-//There is also YAML-markups for everything and some small videofile (We are not DeSiGnErS so it may seem disgusting for some pompous guys. //
+//There is also YAML-markups for everything and small videofile (We are not DeSiGnErS so it may seem disgusting for some pompous guys.) //
 
+// You may also find our way of color definition to be very strange))0))0//
 
 Wanna joke? 
 "What is the difference between goose? His left wing is more than right!"
