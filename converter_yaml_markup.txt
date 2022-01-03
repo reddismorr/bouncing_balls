@@ -1,0 +1,278 @@
+exec:
+    comm: converter.py input.cfg 
+runBy:
+    type: python3
+inputs:
+    - type: file
+      ident: cfgVals
+      name: Конфигурационный файл, список
+      description: Конф файл
+      options: 
+        format: tabs
+        vertical: true
+        fType: vals
+        path: input.cfg
+        delim: "\n"
+      childs:
+        - type: category
+          ident: cat_balls 
+          name: Входные параметры для шаров 
+          description: CAT BALLS
+          options:
+            format: form
+          childs: 
+            - type: arg
+              ident: min_radius
+              name: Минимальный радиус шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 20.0
+            - type: arg
+              ident: max_radius
+              name: Максимальный радиус шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 50.0
+            - type: arg
+              ident: min_velocity
+              name: Минимальная длина вектора скорости шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 100.0
+            - type: arg
+              ident: max_velocity
+              name: Максимальная длина вектора скорости шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 150.0
+            - type: arg
+              ident: min_mazz
+              name: Минимальная масса шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 10.0
+            - type: arg
+              ident: max_mass
+              name: Максимальная масса шара 
+              description: Как дела?
+              options:
+                format: input
+                dtyte: real
+                min: 0.0
+                max: 1000000.0
+                step: 0.1
+                default: 15.0
+        - type: category
+          ident: cat_model
+          name: Параметры моделирования  
+          description: CAT MODEL
+          options:
+            format: form
+          childs:
+            - type: arg
+              ident: count
+              name: Количество шаров
+              description: balls count
+              options:
+                format: input
+                dtype: integer
+                min: 1
+                max: 1000
+                step: 1
+                default: 10
+            - type: arg
+              ident: gravity
+              name: Ускорение свободного падения (с учетом знака)
+              description: Gravity
+              options:
+                format: input
+                dtype: real
+                min: -1000.0
+                max: 1000.0
+                step: 0.1
+                default: -9.8
+            - type: arg
+              ident: max_time
+              name: Время моделирования (в секундах)
+              description: max model time 
+              options:
+                format: input
+                dtype: real
+                min: 0.000001
+                max: 1000.0
+                step: 0.000001
+                default: 10.0
+            - type: arg
+              ident: time_step 
+              name: Время записи контрольных файлов (в секундах)
+              description: time step 
+              options:
+                format: input
+                dtype: real
+                min: 0.000001
+                max: 1000.0
+                step: 0.000001
+                default: 0.05
+            
+        - type: category
+          ident: cat_boundary_box
+          name: Параметры ограничивающего объема 
+          description: CAT BOUND
+          options:
+            format: form
+          childs: 
+            - type: arg
+              ident: box_x_min
+              name: Координата нижней границы по X
+              description: X lower bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 0.0
+            - type: arg
+              ident: box_x_max
+              name: Координата верхней границы по X
+              description: X upper bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 600.0
+            - type: arg
+              ident: box_y_min
+              name: Координата нижней границы по Y
+              description: Y lower bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 0.0
+            - type: arg
+              ident: box_y_max
+              name: Координата верхней границы по Y
+              description: Y upper bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 600.0
+            - type: arg
+              ident: box_z_min
+              name: Координата нижней границы по Z
+              description: Z lower bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 0.0
+            - type: arg
+              ident: box_z_max
+              name: Координата верхней границы по Z
+              description: Z upper bound
+              options:
+                format: input
+                dtyte: real
+                min: -100000.0
+                max: 100000.0
+                step: 0.1
+                default: 600.0
+        - type: category
+          ident: cat_extra_prop
+          name: Параметры дополнительного моделирования пропускающих границ 
+          description: CAT EXTRA PROPERTIES
+          options:
+            format: form
+          childs: 
+            - type: arg
+              ident: x_min_key
+              name: Ключ, отключающий нижнюю границу по X
+              description: X lower bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+            - type: arg
+              ident: x_max_key
+              name: Ключ, отключающий верхнюю границу по X
+              description: X upper bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+            - type: arg
+              ident: y_min_key
+              name: Ключ, отключающий нижнюю границу по Y
+              description: Y lower bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+            - type: arg
+              ident: y_max_key
+              name: Ключ, отключающий верхнюю границу по Y
+              description: Y upper bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+            - type: arg
+              ident: z_min_key
+              name: Ключ, отключающий нижнюю границу по Z
+              description: Z lower bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+            - type: arg
+              ident: Z_max_key
+              name: Ключ, отключающий верхнюю границу по Z
+              description: Z upper bound key
+              options:
+                format: input
+                dtyte: string
+                default: 'True'
+
+outputs:
+- type: file
+  ident: json_config
+  name: JSON Configuration file
+  description: Конфигурационный файо в формате .json
+  options: 
+    format: txt
+    path: computing_configuration.json

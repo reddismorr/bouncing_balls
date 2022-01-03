@@ -1,0 +1,29 @@
+exec:
+    comm: Visualization_BB.py OutDir visualization_configuration.json
+runBy:
+    type: python3
+inputs:
+    - type: dir
+      ident: path
+      name: Путь к директории с файлами данных
+      description: Может быть мягкой ссылкой
+      options:
+        format: data
+        path: OutDir
+    - type: file
+      ident: config
+      name: conf_file
+      description: Сonfiguration for visualization
+      options: 
+        format: data
+        fType: plain
+        path: visualization_configuration.json
+    
+outputs:
+    - type: file
+      ident: video
+      name: VIDEOFILE
+      description: Videofile in OggTheora format
+      options: 
+        format: video
+        path: bouncing_balls.ogv
